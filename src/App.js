@@ -1,15 +1,28 @@
-import './App.css';
+import React, {useState} from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import "bulma/css/bulma.css";
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+
+
+export default function App() {
+  const [cartCount, setCartCount] = useState(0);
+
   return (
-    <div className="App">
-      <NavBar />
-      <ItemListContainer greeting={'Bienvenidos'}/>
-    </div>
+      <BrowserRouter>
+        <NavBar cartCount={cartCount} />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting="Bienvenido a TECHNOLOGY!"setCartCount={setCartCount}/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Categoria"setCartCount={setCartCount}/>}/>
+            <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
+            <Route path='*' element={() => <h1>404 NOT FOUND </h1>} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 
-export default App;
+

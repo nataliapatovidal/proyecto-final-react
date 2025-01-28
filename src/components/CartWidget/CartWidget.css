@@ -1,0 +1,32 @@
+.cart-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre los elementos */
+    padding: 10px;
+    background-color: #f8f9fa; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: transform 0.2s ease;
+}
+
+.cart-widget:hover {
+    transform: scale(1.05); /* Efecto al pasar por encima */
+}
+
+.cart-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.cart-details {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-count {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}

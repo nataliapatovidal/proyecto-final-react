@@ -1,0 +1,84 @@
+
+.NavBar {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente los elementos */
+    background-color:rgb(77, 44, 223);
+    color: aliceblue;
+    padding: 0 20px;
+  }
+  
+  .Categories {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Ajusta el espaciado entre los botones */
+  }
+  
+  .Categories a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgb(32, 1, 167);
+    border-radius: 4px;
+  }
+  
+  .Categories a:hover {
+    background-color: rgb(16, 0, 85);
+  }
+  
+  /* Estilo para el carrito */
+  .cart-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .cart-widget:hover {
+    transform: scale(1.05);
+  }
+  
+  .cart-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .cart-details {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .cart-count {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+
+  .NavBar h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: aliceblue;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.NavBar h3:hover {
+    cursor: pointer;
+}
+
+.NavBar a {
+    text-decoration: none; /* Elimina el subrayado en todos los enlaces */
+}
+
+
