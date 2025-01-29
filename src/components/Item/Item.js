@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Item.css"; 
 
-const Item = ({ id, name, img, price, stock }) => {
+const Item = ({ Id, name, img, price, stock }) => {
     return (
     <article className="card-item">
     <header className="card-header">
@@ -19,6 +19,7 @@ const Item = ({ id, name, img, price, stock }) => {
             <strong>Stock disponible:</strong> {stock}
         </p>
     </section>
+    
     </article>
     );
 };

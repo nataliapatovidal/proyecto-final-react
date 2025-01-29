@@ -1,7 +1,14 @@
 
+import React from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css';
-const ItemDetail = ({ name, img, category, descrip, price, stock }) => {
+const ItemDetail = ({  name, img, category, descrip, price, stock, onAdd, handleRemoveFromCart, setCart, setCartCount}) => {
+    
+    const handleAddToCart = (quantity) => {
+        setCartCount((prevCount) => prevCount + quantity); 
+        console.log(`Se agregó ${quantity} unidades de ${name} al carrito.`);
+    };
+    
     return (
         <article className="CardItem">
             <header className="Header">
@@ -19,8 +26,15 @@ const ItemDetail = ({ name, img, category, descrip, price, stock }) => {
                 <ItemCount 
                 initial={1} 
                 stock={stock} 
-                onAdd={(quantity) => console.log(`Cantidad agregada: ${quantity}`)}/>
+                onAdd={handleAddToCart}/>
+                <button className="btn btn-success btn-sm" 
+                onClick={handleRemoveFromCart}
+                disabled={stock === 0}>
+                Eliminar del carrito
+                </button> 
             </footer>
         </article>
     )
-}
+};
+
+export default ItemDetail;

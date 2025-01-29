@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ItemList.css"
 
 const ItemList = ({ products, onAddToCart, onRemoveFromCart }) => {
+    //GENERAL INICIO//
     return (
         <div className="row">
             {products.map((products) => (
@@ -14,9 +15,9 @@ const ItemList = ({ products, onAddToCart, onRemoveFromCart }) => {
                         <p className="card-text fw-bold">${products.price}</p>
                         
                     <div className="mt-auto d-flex flex-column gap-2">
-                        <Link to={`/item/${products.id}`} className="btn btn-success btn-sm">Más info</Link>
+                        <Link to={`/item/${products.Id}`} className="btn btn-success btn-sm">Más info</Link>
                         <button className="btn btn-success btn-sm"onClick={() => onAddToCart (products)}>Agregar al carrito</button>
-                        <button className="btn btn-success btn-sm"onClick={() => onRemoveFromCart (products)}>Eliminar del carrito</button>
+                        <button className="btn btn-success btn-sm"onClick={() => onRemoveFromCart (products.Id)}>Eliminar del carrito</button>
                     </div>
             </div>
             </div>

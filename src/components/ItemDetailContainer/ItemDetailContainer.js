@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { getProductById } from "../../asyncMock";
 import { useParams } from "react-router-dom";
-import "./ItemDetailContainer.css"; // Importamos los estilos
+import ItemDetail from "../ItemDetail/ItemDetail";
+import "./ItemDetailContainer.css"; 
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ handleRemoveFromCart, setCart, setCartCount }) => {
   const { itemId } = useParams();
   const [products, setProduct] = useState(null);
   const [error, setError] = useState(null);
@@ -17,6 +18,7 @@ const ItemDetailContainer = () => {
       });
   }, [itemId]);
 
+
   if (error) {
     return <p className="error">{error}</p>;
   }
@@ -27,14 +29,17 @@ const ItemDetailContainer = () => {
 
   return (
     <div className="item-detail-container">
-      <h2 className="product-name">{products.name}</h2>
-      <p className="product-description">{products.descrip}</p>
-      <p className="product-price">${products.price}</p>
-      <p className="product-stock"><strong>Stock disponible:</strong> {products.stock}</p>
-      <img
-        src={products.img}
-        alt={products.name}
-        className="product-image"
+      <ItemDetail 
+        name={products.name}
+        img={products.img}
+        category={products.category}
+        descrip={products.descrip}
+        price={products.price}
+        stock={products.stock}
+        onAdd={(quantity) => console.log(`Cantidad agregada: ${quantity}`)}
+        handleRemoveFromCart={handleRemoveFromCart}
+        setCart={setCart} 
+        setCartCount={setCartCount}
       />
     </div>
   );

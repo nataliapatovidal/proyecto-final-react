@@ -2,7 +2,7 @@
 import { useState } from 'react' 
 import "./ItemCount.css";
 
-const ItemCount = ({stock, initial, onAdd})=> {
+const ItemCount = ({stock, initial, onAdd,onRemove})=> {
     const [quantity, setQuantity] = useState(initial)
 
     const increment = () => {
@@ -19,22 +19,20 @@ const ItemCount = ({stock, initial, onAdd})=> {
 
 
 
-return(
-    <div className='Counter'>
-        <div className= 'Controls'>
-            <button className='Button' onClick={decrement}>-</button>
-            <h4 className='Number'>{quantity}</h4>
-            <button className='Button' onClick={increment}>+</button>
-    </div>
-    <div>
-        <button className="button add-button" 
-        onClick={() => onAdd(quantity)} 
-        disabled={!stock}>
-            Agregar al carrito
-            </button>
+    return (
+        <div className="Counter mt-auto d-flex flex-column gap-3">
+            <div className="Controls d-flex justify-content-between align-items-center">
+                <button className="btn custom-btn" onClick={decrement}>-</button>
+                <h4 className="Number">{quantity}</h4>
+                <button className="btn custom-btn" onClick={increment}>+</button>
+            </div>
+            <div className="mt-3 d-flex flex-column gap-2">
+                <button className="btn custom-btn" onClick={() => onAdd(quantity)} disabled={!stock}>
+                Agregar al carrito
+                </button>
+            </div>
         </div>
-    </div>
-    )
-}   
-
-export default ItemCount;
+        );
+    };
+    
+    export default ItemCount;

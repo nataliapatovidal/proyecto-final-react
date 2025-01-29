@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   const [cartCount, setCartCount] = useState(0);
+  
 
   return (
       <BrowserRouter>
@@ -18,7 +19,7 @@ export default function App() {
           <Routes>
             <Route path='/' element={<ItemListContainer greeting="Bienvenido a TECHNOLOGY!"setCartCount={setCartCount}/>}/>
             <Route path='/category/:categoryId' element={<ItemListContainer greeting="Categoria"setCartCount={setCartCount}/>}/>
-            <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
+            <Route path='/item/:itemId' element={<ItemDetailContainer setCartCount={setCartCount} />} />
             <Route path='*' element={() => <h1>404 NOT FOUND </h1>} />
           </Routes>
       </BrowserRouter>
