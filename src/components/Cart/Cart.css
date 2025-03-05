@@ -1,0 +1,46 @@
+/* Estilos para el carrito */
+.CartContainer {
+    margin: 20px;
+}
+
+.CartHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.CartTotal {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.CartTotal h2 {
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.CartButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.CartButtons .CartButton {
+    padding: 10px 15px;
+    background-color: #007bff !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+}
+
+.CartButtons .CartButton:hover {
+    background-color: #0056b3 !important;
+}
