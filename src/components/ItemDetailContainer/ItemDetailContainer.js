@@ -1,48 +1,59 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../../asyncMock";
-import { useParams } from "react-router-dom";
+
 import ItemDetail from "../ItemDetail/ItemDetail";
-import "./ItemDetailContainer.css"; 
-
-const ItemDetailContainer = ({ handleRemoveFromCart, setCart, setCartCount }) => {
-  const { itemId } = useParams();
-  const [products, setProduct] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    getProductById(itemId)
-      .then((response) => setProduct(response))
-      .catch((error) => {
-        console.error(error);
-        setError("No se pudo cargar el producto.");
-      });
-  }, [itemId]);
+import { useParams } from "react-router-dom";
 
 
-  if (error) {
-    return <p className="error">{error}</p>;
-  }
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig";
 
-  if (!products) {
-    return <p className="loading">Cargando producto...</p>;
-  }
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null); 
+    const { itemid } = useParams();
 
-  return (
-    <div className="item-detail-container">
-      <ItemDetail 
-        name={products.name}
-        img={products.img}
-        category={products.category}
-        descrip={products.descrip}
-        price={products.price}
-        stock={products.stock}
-        onAdd={(quantity) => console.log(`Cantidad agregada: ${quantity}`)}
-        handleRemoveFromCart={handleRemoveFromCart}
-        setCart={setCart} 
-        setCartCount={setCartCount}
-      />
-    </div>
-  );
+    useEffect(() => {
+        if (!itemid) {
+            setError("ID del producto no disponible.");
+            setLoading(false);
+            return;
+        }
+
+        setLoading(true);
+        setError(null);  
+        const docRef = doc(db, "products", itemid);
+
+        getDoc(docRef)
+            .then((response) => {
+                if (response.exists()) {
+                    const data = response.data();
+                    const productsAdapted = { id: response.id, ...data };
+                    setProduct(productsAdapted);
+                } else {
+                    setError("Producto no encontrado");  
+                }
+            })
+            .catch((error) => {
+                console.error("Error obteniendo producto:", error);
+                setError("Hubo un error al cargar el producto");
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [itemid]);
+
+    return (
+        <div>
+            {loading ? (
+                <h1 className="text is-size-4">Cargando detalles ...</h1>
+            ) : error ? (
+                <h1 className="text is-size-4">{error}</h1>  
+            ) : (
+                <ItemDetail {...product} />
+            )}
+        </div>
+    );
 };
 
 export default ItemDetailContainer;

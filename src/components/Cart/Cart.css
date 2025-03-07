@@ -1,46 +1,95 @@
-/* Estilos para el carrito */
 .CartContainer {
-    margin: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+    width: 100%; 
+    box-sizing: border-box;
 }
 
 .CartHeader {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #333;
-    text-align: left;
+    margin-bottom: 20px;
 }
 
 .CartTotal {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 15px;
-}
-
-.CartTotal h2 {
-    color: #007bff;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .CartButtons {
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+    justify-content: center; 
 }
 
-.CartButtons .CartButton {
-    padding: 10px 15px;
-    background-color: #007bff !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s !important;
+.CartButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 5px;
 }
 
-.CartButtons .CartButton:hover {
-    background-color: #0056b3 !important;
+.CartButton:hover {
+    background-color: #0056b3;
+}
+
+.CartButton:active {
+    transform: scale(0.98);
+}
+
+
+@media (max-width: 768px) {
+    .CartContainer {
+        padding: 15px; 
+        margin: 0 auto;
+    }
+
+    .CartHeader {
+        font-size: 2rem; 
+    }
+
+    .CartTotal {
+        font-size: 1.25rem; 
+    }
+
+    .CartButton {
+        font-size: 0.9rem; 
+        padding: 8px 16px; 
+    }
+}
+
+
+@media (max-width: 425px) {
+    .CartContainer {
+        padding: 10px; 
+        width: 100%; 
+        margin: 0 auto; 
+    }
+
+    .CartHeader {
+        font-size: 1.8rem; 
+    }
+
+    .CartTotal {
+        font-size: 1.1rem; 
+    }
+
+    .CartButton {
+        font-size: 0.8rem; 
+        padding: 6px 12px; 
+    }
 }

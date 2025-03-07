@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Item.css"; 
 
-const Item = ({ Id, name, img, price, stock }) => {
+const Item = ({ id, name, img, price, stock }) => {
     return (
     <article className="card-item">
     <header className="card-header">

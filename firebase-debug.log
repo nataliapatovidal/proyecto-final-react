@@ -1,0 +1,25 @@
+[debug] [2025-03-06T15:21:37.610Z] ----------------------------------------------------------------------
+[debug] [2025-03-06T15:21:37.612Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\natal\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-03-06T15:21:37.613Z] CLI Version:   13.32.0
+[debug] [2025-03-06T15:21:37.613Z] Platform:      win32
+[debug] [2025-03-06T15:21:37.613Z] Node Version:  v22.12.0
+[debug] [2025-03-06T15:21:37.613Z] Time:          Thu Mar 06 2025 12:21:37 GMT-0300 (hora estándar de Argentina)
+[debug] [2025-03-06T15:21:37.613Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-06T15:21:37.619Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-06T15:21:37.619Z] > authorizing via signed-in user (nataliapatriciavidal@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Nati\coder\react\finalreact
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+

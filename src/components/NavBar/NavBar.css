@@ -1,8 +1,8 @@
 
 .NavBar {
     display: flex;
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; 
+    align-items: center; 
     background-color:rgb(77, 44, 223);
     color: aliceblue;
     padding: 0 20px;
@@ -13,7 +13,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    gap: 15px; /* Ajusta el espaciado entre los botones */
+    gap: 15px; 
   }
   
   .Categories a {
@@ -28,7 +28,7 @@
     background-color: rgb(16, 0, 85);
   }
   
-  /* Estilo para el carrito */
+  
   .cart-widget {
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@
     margin: 0;
     padding: 10px 0;
     text-align: center;
-    text-decoration: none; /* Elimina el subrayado */
+    text-decoration: none; 
 }
 
 .NavBar h3:hover {
@@ -78,7 +78,7 @@
 }
 
 .NavBar a {
-    text-decoration: none; /* Elimina el subrayado en todos los enlaces */
+    text-decoration: none; 
 }
 
 

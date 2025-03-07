@@ -1,8 +1,7 @@
-
 import { useState } from 'react' 
 import "./ItemCount.css";
 
-const ItemCount = ({stock, initial, onAdd,onRemove})=> {
+const ItemCount = ({stock, initial, onAdd, onRemove})=> {
     const [quantity, setQuantity] = useState(initial)
 
     const increment = () => {
@@ -17,7 +16,12 @@ const ItemCount = ({stock, initial, onAdd,onRemove})=> {
         }
     }
 
-
+    const handleRemove = () => {
+        if (quantity > 0) {
+            onRemove(quantity);
+            setQuantity(0); // Opcionalmente restablecer la cantidad a cero
+        }
+    };
 
     return (
         <div className="Counter mt-auto d-flex flex-column gap-3">
@@ -29,6 +33,9 @@ const ItemCount = ({stock, initial, onAdd,onRemove})=> {
             <div className="mt-3 d-flex flex-column gap-2">
                 <button className="btn custom-btn" onClick={() => onAdd(quantity)} disabled={!stock}>
                 Agregar al carrito
+                </button>
+                <button className="btn custom-btn" onClick={handleRemove} disabled={quantity === 0}>
+                    Eliminar del carrito
                 </button>
             </div>
         </div>

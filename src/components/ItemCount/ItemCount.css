@@ -1,17 +1,17 @@
 .custom-btn {
     width: 100%;
-    font-size: 16px; /* Puedes ajustar el tamaño de fuente a tu gusto */
-    padding: 10px 0; /* Ajusta la altura del botón */
+    font-size: 16px; 
+    padding: 10px 0; 
   }
   
-  /* Espaciado consistente entre botones */
+  
   .Counter .Controls button,
   .Counter .mt-3 button {
-    margin: 5px 0; /* Se agrega un pequeño margen entre los botones */
+    margin: 5px 0; 
   }
   
-  /* Si necesitas ajustar el tamaño o estilo del número, puedes hacerlo */
+  
   .Number {
-    margin: 0 10px; /* Agrega margen para dar espacio entre los botones y el número */
+    margin: 0 10px; 
     font-size: 20px;
   }
