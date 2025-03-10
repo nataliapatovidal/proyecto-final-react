@@ -8,13 +8,27 @@ import './ItemListContainer.css';
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
-    const { categoryid } = useParams();
+    const { categoryid } = useParams(); // Obtener la categoría de la URL
     const { cart, setCart } = useContext(CartContext);
+
+    // Definir un título dinámico de la categoría
+    const getCategoryTitle = () => {
+        switch (categoryid) {
+            case "celular":
+                return "Celulares";
+            case "tablet":
+                return "Tablets";
+            case "notebook":
+                return "Notebooks";
+            default:
+                return "Notebooks";
+        }
+    };
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const collectionRef = collection(db, "products"); 
+                const collectionRef = collection(db, "products");
                 const q = categoryid ? query(collectionRef, where("category", "==", categoryid)) : collectionRef;
                 const querySnapshot = await getDocs(q);
                 const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -26,7 +40,6 @@ const ItemListContainer = ({ greeting }) => {
     
         fetchProducts();
     }, [categoryid]);
-    
 
     const handleAddToCart = (product) => {
         setCart((prevCart) => {
@@ -60,6 +73,7 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <div className="ItemListContainer">
             <h3 className="title">{greeting}</h3>
+            <h4 className="category-title">{getCategoryTitle()}</h4> {/* Título de la categoría */}
             <ItemList
                 products={products}
                 onAddToCart={handleAddToCart}
@@ -70,4 +84,5 @@ const ItemListContainer = ({ greeting }) => {
 };
 
 export default ItemListContainer;
+
 
