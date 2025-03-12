@@ -29,8 +29,12 @@ export const CartProvider = ({ children }) => {
     };
 
     const removeItem = (itemId) => {
-        const cartUpdated = cart.filter(prod => prod.id !== itemId);
-        setCart(cartUpdated);
+        setCart(prevCart => {
+            console.log("Producto antes de eliminar", prevCart);
+            const updatedCart = prevCart.filter(item => item.id !== itemId);
+            console.log("Producto después de eliminar", updatedCart);
+            return updatedCart;
+        });
     };
 
     const clearCart = () => {

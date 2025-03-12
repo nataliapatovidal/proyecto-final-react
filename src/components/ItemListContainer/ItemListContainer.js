@@ -9,7 +9,7 @@ import './ItemListContainer.css';
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
     const { categoryid } = useParams(); // Obtener la categoría de la URL
-    const { cart, setCart } = useContext(CartContext);
+    const {  setCart } = useContext(CartContext);
 
     // Definir un título dinámico de la categoría
     const getCategoryTitle = () => {

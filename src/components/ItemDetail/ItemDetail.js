@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const [quantityAdded, setQuantityAdded] = useState(0);
-    const { addItem } = useContext(CartContext);
+    const { addItem, removeItem } = useContext(CartContext);
 
     const handleAddToCart = (quantity) => {
         setQuantityAdded(quantity);
@@ -20,6 +20,13 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
         addItem(item, quantity); 
     };
+
+     // Obtener removeItem del contexto
+
+     const handleRemoveFromCart = () => {
+        removeItem(id); // Eliminar el producto por ID
+    };
+
 
     return (
         <article className="CardItem">
@@ -43,7 +50,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                             </button>
                         </Link>
                     ) : (
-                        <ItemCount initial={1} stock={stock} onAdd={handleAddToCart} />
+                        <ItemCount initial={1} stock={stock} onAdd={handleAddToCart} onRemove={handleRemoveFromCart} />
                     )
                 }
             </footer>
@@ -52,3 +59,5 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 };
 
 export default ItemDetail;
+
+

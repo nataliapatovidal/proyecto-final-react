@@ -15,7 +15,7 @@ const ItemList = ({ products, onAddToCart, onRemoveFromCart }) => {
                         <p className="card-text fw-bold">${product.price}</p>
                         
                     <div className="mt-auto d-flex flex-column gap-2">
-                        <Link to={`/item/${product.id}`} className="btn btn-success btn-sm">Más info</Link>
+                    <Link to={`/item/${product.id}`} className="btn btn-success btn-sm">Más info</Link>
                         <button className="btn btn-success btn-sm"onClick={() => onAddToCart (product)}>Agregar al carrito</button>
                         <button className="btn btn-success btn-sm"onClick={() => onRemoveFromCart (product.id)}>Eliminar del carrito</button>
                     </div>

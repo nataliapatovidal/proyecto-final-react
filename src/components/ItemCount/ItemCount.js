@@ -18,7 +18,7 @@ const ItemCount = ({stock, initial, onAdd, onRemove})=> {
 
     const handleRemove = () => {
         if (quantity > 0) {
-            onRemove(quantity);
+            onRemove();
             setQuantity(0); // Opcionalmente restablecer la cantidad a cero
         }
     };
